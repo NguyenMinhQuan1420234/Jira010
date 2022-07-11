@@ -16,6 +16,9 @@ import com.tms.quannguyen.practice.pages.SearchProjectPage;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.equalTo;
+
 public class CreateProjectTest extends BaseTest {
     
     public WebDriver driver;
@@ -50,12 +53,13 @@ public class CreateProjectTest extends BaseTest {
 
         createProjectPage.clickCreateButton();
 
-
+        assertThat("verify message: ", navigatePage.getProjectName(), equalTo(ConfigConstants.PRJ_NAME));
     }
 
     @AfterMethod
     public void AfterMethod() {
-        // driver.close();
+        createProjectPage.deleteProject();
+        driver.close();
     }
 
 }

@@ -16,6 +16,7 @@ public class NavigationPage extends BasePage {
     
 
     //Create Page
+    private By PROJECT_NAME = By.xpath("//label[@for='name']/following-sibling::p");
 
     /* ****************************************************************************  */
     public NavigationPage(WebDriver driver) {
@@ -41,4 +42,7 @@ public class NavigationPage extends BasePage {
 
     /* Create Project assert method  */
 
+    public String getProjectName() {
+        return getText(PROJECT_NAME);
+    }
 }

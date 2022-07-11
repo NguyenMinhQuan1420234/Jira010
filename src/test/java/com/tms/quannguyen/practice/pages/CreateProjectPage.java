@@ -33,7 +33,11 @@ public class CreateProjectPage extends BasePage {
     public static final By BTN_CREATE = By.cssSelector("project-create button[type='submit']");
     public static final By BTN_CANCEL = By.xpath("//button[@ng-click='pcC.cancel()']");
 
-    // date picker
+    // Project information
+    public static final By BTN_DELETE = By.xpath("//button[text()='Delete']");
+    public static final By BTN_YES = By.xpath("//button[@ng-click='piC.deleteProject()']");
+    
+    // Date picker
     public static final By BTN_SDATE_PICKER = By.xpath("//button[@ng-click='pcC.openSDatePicker()']");
     public static final By BTN_EDATE_PICKER = By.xpath("//button[@ng-click='pcC.openEDatePicker()']");
     public static final By BTN_TODAY = By.xpath("//button[text()='Today']");
@@ -65,6 +69,11 @@ public class CreateProjectPage extends BasePage {
         clickElement(BTN_CANCEL);
     }
 
+    public void deleteProject() {
+        clickElement(BTN_DELETE);
+        clickElement(BTN_YES);
+    }
+
     public void elementSelectByIndex(By locator, int number) {
         Select element = elementSelect(locator);
         element.selectByIndex(number);
@@ -86,7 +95,7 @@ public class CreateProjectPage extends BasePage {
     }
 
     public void fillProjectInfomation() {
-        inputTextBox(TXT_PROJECT_NAME, "quannguyen-practice-UI-Automation");
+        inputTextBox(TXT_PROJECT_NAME, ConfigConstants.PRJ_NAME);
         inputTextBox(TXT_SIZEDAY, "1");
         inputTextBox(TXT_SHORT_DESCRIPTION, ConfigConstants.TXT_INPUT);
         inputTextBox(TXT_LONG_DESCRIPTION, ConfigConstants.TXT_INPUT);
