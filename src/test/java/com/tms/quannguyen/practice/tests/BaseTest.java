@@ -1,5 +1,7 @@
 package com.tms.quannguyen.practice.tests;
 
+import com.tms.quannguyen.practice.contents.ConfigConstants;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
@@ -22,16 +24,14 @@ public class BaseTest {
 
     @BeforeClass
     public void BeforeMethod() throws InterruptedException {
-        // Log.info("Tests is starting!");
-        // WebDriverManager.chromedriver().setup();
-        // driver = new ChromeDriver();
-        // driver.manage().window().maximize();
-        // driver.get(ConfigConstants.BASE_URL);
+         WebDriverManager.chromedriver().setup();
+         driver = new ChromeDriver();
+         driver.manage().window().maximize();
+         driver.get(ConfigConstants.BASE_URL);
     }
 
     @AfterClass
     public void AfterMethod() {
-        // Log.info("Tests are ending!");
-        // driver.quit();
+         driver.quit();
     }
 }
