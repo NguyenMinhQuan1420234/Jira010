@@ -4,6 +4,7 @@ package com.tms.quannguyen.practice.tests;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -21,21 +22,33 @@ public class CreateProjectTest extends BaseTest {
     NavigationPage navigatePage;
     CreateProjectPage createProjectPage;
     
+
     @BeforeMethod
     public void BeforeMethod() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.get("https://www.google.com");
+        driver.get(ConfigConstants.BASE_URL);
+
+        loginPage = new LoginPage(driver);
+        navigatePage = new NavigationPage(driver);
+
+        loginPage.inputUsername(ConfigConstants.USERNAME);
+        loginPage.inputPassword(ConfigConstants.PASSWORD);
+        loginPage.clickLoginBtn();
 
     }
-
 
     @Test
     public void CreateProject() {
         System.out.println("awesome");
         // createProjectPage = new CreateProjectPage(driver);
         // createProjectPage.inputText(createProjectPage.TXT_CLIENTNAME, "Vu");
+    }
+
+    @AfterMethod
+    public void AfterMethod() {
+        driver.close();
     }
 
 }

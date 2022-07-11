@@ -24,6 +24,15 @@ public class CreateProjectPage extends BasePage {
     public static final By BTN_CREATE = By.cssSelector("project-create button[type='submit']");
     public static final By BTN_CANCEL = By.xpath("//button[@ng-click='pcC.cancel()']");
 
+    // date picker
+    public static final By BTN_SDATE_PICKER = By.xpath("//button[@ng-click='pcC.openSDatePicker()']");
+
+    public static final By DATE_PICKER_DAY(String text) { 
+        // return By.xpath($"//span[@class='ng-binding'][text()='text']");
+        return By.xpath(String.format("//span[@class='ng-binding'][text()='%s']", text));
+    }
+    
+    //method
     public CreateProjectPage(WebDriver driver) {
         super(driver);
         //TODO Auto-generated constructor stub

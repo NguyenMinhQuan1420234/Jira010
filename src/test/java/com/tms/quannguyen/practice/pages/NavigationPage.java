@@ -12,7 +12,12 @@ public class NavigationPage extends BasePage {
     private By ERR_MSG = By.xpath("//p[@ng-message='required']");
     private By ERR_MSG_2 = By.xpath("//div[@ng-show='isError']");
 
-    // CreateProject/Search Page
+    // Search Page
+
+    private By DDL_PROJECTS = By.xpath("//a[contains(text(),'Projects')]");
+    
+
+    //Create Page
 
     /* ****************************************************************************  */
     public NavigationPage(WebDriver driver) {
