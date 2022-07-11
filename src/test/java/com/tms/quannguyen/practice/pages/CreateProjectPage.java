@@ -1,8 +1,9 @@
 package com.tms.quannguyen.practice.pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 
-public class CreateProjectPage {
+public class CreateProjectPage extends BasePage {
 
     public static final By TXT_PROJECT_NAME = By.id("name");
     public static final By DDL_PROJECT_TYPE = By.id("projecttype");
@@ -20,8 +21,18 @@ public class CreateProjectPage {
     public static final By TXT_CLIENTNAME = By.id("clientName");
     public static final By DDL_CLIENT_INDUSTRY = By.id("clientindustry");
     public static final By TXT_CLIENT_DESCRIPTION = By.id("clientdescription");
+    public static final By BTN_CREATE = By.cssSelector("project-create button[type='submit']");
+    public static final By BTN_CANCEL = By.xpath("//button[@ng-click='pcC.cancel()']");
 
-    
+    public CreateProjectPage(WebDriver driver) {
+        super(driver);
+        //TODO Auto-generated constructor stub
+    }
+
+    public void inputTextBox(By locator, String text) {
+        inputText(locator, text);
+    }
+
 
 
 

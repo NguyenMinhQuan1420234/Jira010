@@ -3,6 +3,7 @@ package com.tms.quannguyen.practice.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+
 public class LoginPage extends BasePage {
 
     public static final By TXT_USERNAME = By.id("username");
