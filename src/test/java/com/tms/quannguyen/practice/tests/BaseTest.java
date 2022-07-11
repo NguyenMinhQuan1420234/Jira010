@@ -10,6 +10,7 @@ import org.testng.annotations.Listeners;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.testng.listener.ExtentIReporterSuiteListenerAdapter;
 
+@Listeners({ ExtentIReporterSuiteListenerAdapter.class })
 public class BaseTest {
 
     public WebDriver driver;

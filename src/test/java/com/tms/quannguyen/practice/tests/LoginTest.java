@@ -8,8 +8,10 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
 import com.aventstack.extentreports.testng.listener.ExtentIReporterSuiteListenerAdapter;
-import com.relevantcodes.extentreports.ExtentReports;
-import com.relevantcodes.extentreports.ExtentTest;
+// import com.relevantcodes.extentreports.ExtentReports;
+// import com.relevantcodes.extentreports.ExtentTest;
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
 import com.tms.quannguyen.practice.contents.ConfigConstants;
 import com.tms.quannguyen.practice.pages.LoginPage;
 import com.tms.quannguyen.practice.pages.NavigationPage;
@@ -19,7 +21,6 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 
-@Listeners({ ExtentIReporterSuiteListenerAdapter.class })
 public class LoginTest extends BaseTest {
     
     public WebDriver driver;
@@ -33,16 +34,16 @@ public class LoginTest extends BaseTest {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        report = new ExtentReports("C:/Users/banch/QuanNguyen-practice-auto/selenium-testng/extent-reports/report.html", true);
-        test = report.startTest("Extent report demo");
+        // report = new ExtentReports("C:/Users/banch/QuanNguyen-practice-auto/selenium-testng/extent-reports/report.html", true);
+        // test = report.startTest("Extent report demo");
         driver.get(ConfigConstants.BASE_URL);
 
     }
 
     @AfterMethod
     public void AfterMethod() {
-        report.endTest(test);
-        report.flush();
+        // report.endTest(test);
+        // report.flush();
         driver.close();
     }
 
