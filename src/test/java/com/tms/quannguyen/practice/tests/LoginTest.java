@@ -8,8 +8,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
 import com.aventstack.extentreports.testng.listener.ExtentIReporterSuiteListenerAdapter;
-// import com.relevantcodes.extentreports.ExtentReports;
-// import com.relevantcodes.extentreports.ExtentTest;
+
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.tms.quannguyen.practice.contents.ConfigConstants;
@@ -26,25 +25,14 @@ public class LoginTest extends BaseTest {
     public WebDriver driver;
     LoginPage loginPage;
     NavigationPage navigatePage;
-    static ExtentReports report;
-    static ExtentTest test;
 
     @BeforeMethod
     public void BeforeMethod() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        // report = new ExtentReports("C:/Users/banch/QuanNguyen-practice-auto/selenium-testng/extent-reports/report.html", true);
-        // test = report.startTest("Extent report demo");
         driver.get(ConfigConstants.BASE_URL);
 
-    }
-
-    @AfterMethod
-    public void AfterMethod() {
-        // report.endTest(test);
-        // report.flush();
-        driver.close();
     }
 
     @Test(priority = 0, description = "Login with valid Admin account")
@@ -60,7 +48,7 @@ public class LoginTest extends BaseTest {
         assertThat("verify message: ", navigatePage.getUsername(), equalTo(ConfigConstants.USERNAME));
     }
 
-    @Test(priority = 1, description = "Login with empty password")
+    @Test(priority = 1, description = "Login with empty password ") //empty password
     public void LoginUnsuccessfulNoPassword() throws InterruptedException {
 
         loginPage = new LoginPage(driver);
@@ -110,5 +98,10 @@ public class LoginTest extends BaseTest {
         loginPage.clickLoginBtn();
         
         assertThat("verify message: ", navigatePage.errorMessage(), equalTo(ConfigConstants.ERR_MSG));
+    }
+
+    @AfterMethod
+    public void AfterMethod() {
+        driver.close();
     }
 }

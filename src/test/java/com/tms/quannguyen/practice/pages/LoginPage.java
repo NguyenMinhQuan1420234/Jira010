@@ -16,7 +16,7 @@ public class LoginPage extends BasePage {
         super(driver);
         //TODO Auto-generated constructor stub
     }
-
+    
     public void inputUsername(String username) {
         inputText(TXT_USERNAME, username);
     }
