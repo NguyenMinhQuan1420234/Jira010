@@ -5,9 +5,9 @@
         <listener class-name="com.tms.quannguyen.practice.utils.listeners.TestListeners"/>
         <listener class-name="com.tms.quannguyen.practice.utils.listeners.AnnotationTransformer"/>
     </listeners>
-    <test name="Test">
+    <test name="Login">
         <classes>
-            <class name="com.tms.quannguyen.tests"/>
+            <class name="com.tms.quannguyen.tests.LoginTest"/>
         </classes>
     </test>
 </suite>
