@@ -44,9 +44,7 @@ public class CreateProjectTest extends BaseTest {
         createProjectPage = new CreateProjectPage(driver);
         navigatePage = new NavigationPage(driver);
 
-        createProjectPage.clickElement(createProjectPage.BTN_DROPDOWN_PROJECT);
-        createProjectPage.clickElement(createProjectPage.OPT_CREATE_PROJECT);
-
+        createProjectPage.clickCreateProjectDropdownList();
         createProjectPage.fillProjectInfomation();
         createProjectPage.selectProjectValue();
         createProjectPage.PickToday();

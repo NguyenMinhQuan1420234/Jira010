@@ -61,6 +61,11 @@ public class CreateProjectPage extends BasePage {
         //TODO Auto-generated constructor stub
     }
 
+    public void clickCreateProjectDropdownList() {
+        clickElement(BTN_DROPDOWN_PROJECT);
+        clickElement(OPT_CREATE_PROJECT);
+    }
+
     public void clickCreateButton() {
         clickElement(BTN_CREATE);
     }
