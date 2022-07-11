@@ -12,10 +12,14 @@ public class NavigationPage extends BasePage {
     private By ERR_MSG = By.xpath("//p[@ng-message='required']");
     private By ERR_MSG_2 = By.xpath("//div[@ng-show='isError']");
 
+    // CreateProject/Search Page
+
+    /* ****************************************************************************  */
     public NavigationPage(WebDriver driver) {
         super(driver);
     }
 
+    /* Log in assert method  */
     public String getUsername() {
         return getText(IMG_TXT);
     }
@@ -31,5 +35,7 @@ public class NavigationPage extends BasePage {
     public String getClassAttribute() {
         return getAttribute(CLASS_NAME, "class");
     }
+
+    /* Create Project assert method  */
 
 }

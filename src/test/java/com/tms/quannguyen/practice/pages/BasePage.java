@@ -24,6 +24,10 @@ public class BasePage {
         driver.get(ConfigConstants.BASE_URL + url);
     }
 
+    public void elementSelect(By locator) {
+        
+    }
+
     public void inputText(By locator, String text) {
         WebElement element = waitForElementToBeClickable(locator);
         element.sendKeys(text);
