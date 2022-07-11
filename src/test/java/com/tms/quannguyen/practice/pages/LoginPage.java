@@ -3,6 +3,8 @@ package com.tms.quannguyen.practice.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import com.tms.quannguyen.practice.contents.ConfigConstants;
+
 
 public class LoginPage extends BasePage {
 
@@ -17,6 +19,13 @@ public class LoginPage extends BasePage {
         //TODO Auto-generated constructor stub
     }
     
+    public void LoginSuccessfully() {  
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.inputUsername(ConfigConstants.USERNAME);
+        loginPage.inputPassword(ConfigConstants.PASSWORD);
+        loginPage.clickLoginBtn();
+    }
+
     public void inputUsername(String username) {
         inputText(TXT_USERNAME, username);
     }

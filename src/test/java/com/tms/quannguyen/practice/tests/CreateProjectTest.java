@@ -12,6 +12,7 @@ import com.tms.quannguyen.practice.contents.ConfigConstants;
 import com.tms.quannguyen.practice.pages.CreateProjectPage;
 import com.tms.quannguyen.practice.pages.LoginPage;
 import com.tms.quannguyen.practice.pages.NavigationPage;
+import com.tms.quannguyen.practice.pages.SearchProjectPage;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -21,7 +22,7 @@ public class CreateProjectTest extends BaseTest {
     LoginPage loginPage;
     NavigationPage navigatePage;
     CreateProjectPage createProjectPage;
-    
+    SearchProjectPage searchProjectPage;
 
     @BeforeMethod
     public void BeforeMethod() {
@@ -31,24 +32,30 @@ public class CreateProjectTest extends BaseTest {
         driver.get(ConfigConstants.BASE_URL);
 
         loginPage = new LoginPage(driver);
-        navigatePage = new NavigationPage(driver);
-
-        loginPage.inputUsername(ConfigConstants.USERNAME);
-        loginPage.inputPassword(ConfigConstants.PASSWORD);
-        loginPage.clickLoginBtn();
-
+        loginPage.LoginSuccessfully();
     }
 
     @Test
     public void CreateProject() {
-        System.out.println("awesome");
-        // createProjectPage = new CreateProjectPage(driver);
-        // createProjectPage.inputText(createProjectPage.TXT_CLIENTNAME, "Vu");
+
+        createProjectPage = new CreateProjectPage(driver);
+        navigatePage = new NavigationPage(driver);
+
+        createProjectPage.clickElement(createProjectPage.BTN_DROPDOWN_PROJECT);
+        createProjectPage.clickElement(createProjectPage.OPT_CREATE_PROJECT);
+
+        createProjectPage.fillProjectInfomation();
+        createProjectPage.selectProjectValue();
+        createProjectPage.PickToday();
+
+        createProjectPage.clickCreateButton();
+
+
     }
 
     @AfterMethod
     public void AfterMethod() {
-        driver.close();
+        // driver.close();
     }
 
 }

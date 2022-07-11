@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.tms.quannguyen.practice.contents.ConfigConstants;
@@ -24,8 +25,10 @@ public class BasePage {
         driver.get(ConfigConstants.BASE_URL + url);
     }
 
-    public void elementSelect(By locator) {
-        
+    public Select elementSelect(By locator) {
+        WebElement selectElement = waitForElementToBeClickable(locator);
+        Select selectObject = new Select(selectElement);
+        return selectObject;
     }
 
     public void inputText(By locator, String text) {
