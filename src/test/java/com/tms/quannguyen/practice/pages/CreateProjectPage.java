@@ -32,10 +32,11 @@ public class CreateProjectPage extends BasePage {
     public static final By TXT_CLIENT_DESCRIPTION = By.id("clientdescription");
     public static final By BTN_CREATE = By.cssSelector("project-create button[type='submit']");
     public static final By BTN_CANCEL = By.xpath("//button[@ng-click='pcC.cancel()']");
-
-    // Project information
+    
+    // Delete Project information
     public static final By BTN_DELETE = By.xpath("//button[text()='Delete']");
     public static final By BTN_YES = By.xpath("//button[@ng-click='piC.deleteProject()']");
+    public static final By ALT_MSG = By.xpath("//span[@data-notify='message']");
     /* ****************************************************************************************** */
     // Date picker
     public static final By BTN_SDATE_PICKER = By.xpath("//button[@ng-click='pcC.openSDatePicker()']");
@@ -86,6 +87,7 @@ public class CreateProjectPage extends BasePage {
     public void deleteProject() {
         clickElement(BTN_DELETE);
         clickElement(BTN_YES);
+        waitForElementToBeVisible(ALT_MSG);
     }
 
     public void elementSelectByIndex(By locator, int number) {
