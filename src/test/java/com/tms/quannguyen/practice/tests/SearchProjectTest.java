@@ -27,4 +27,6 @@ public class SearchProjectTest extends BaseTest {
         loginPage.LoginSuccessfully();
     }
 
+    
+
 }
