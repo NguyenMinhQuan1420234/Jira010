@@ -4,6 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import com.tms.quannguyen.practice.contents.ConfigConstants;
+
 public class NavigationPage extends BasePage {
 
     //LoginTest Assertion
@@ -13,7 +15,7 @@ public class NavigationPage extends BasePage {
     private By ERR_MSG_2 = By.xpath("//div[@ng-show='isError']");
 
     // Search Page
-    
+    private By SEARCH_RESULT = By.xpath(String.format("//tr//a[text()='%s']",ConfigConstants.PRJ_SEARCH_NAME));
 
     //Create Page
     private By PROJECT_NAME = By.xpath("//label[@for='name']/following-sibling::p");
@@ -45,4 +47,11 @@ public class NavigationPage extends BasePage {
     public String getProjectName() {
         return getText(PROJECT_NAME);
     }
+
+    /* Search Project assert method */
+
+    public String resultProjectName() {
+        return getText(SEARCH_RESULT);
+    }
+
 }

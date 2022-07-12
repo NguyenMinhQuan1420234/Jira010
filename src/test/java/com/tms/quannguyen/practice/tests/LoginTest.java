@@ -102,6 +102,6 @@ public class LoginTest extends BaseTest {
 
     @AfterMethod
     public void AfterMethod() {
-        driver.close();
+        driver.quit();
     }
 }

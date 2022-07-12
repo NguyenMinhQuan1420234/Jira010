@@ -39,7 +39,7 @@ public class CreateProjectTest extends BaseTest {
     }
 
     @Test
-    public void CreateProject() {
+    public void CreateProjectSuccess() {
 
         createProjectPage = new CreateProjectPage(driver);
         navigatePage = new NavigationPage(driver);
@@ -57,7 +57,7 @@ public class CreateProjectTest extends BaseTest {
     @AfterMethod
     public void AfterMethod() {
         createProjectPage.deleteProject();
-        driver.close();
+        driver.quit();
     }
 
 }

@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: com.tms.quannguyen.practice.tests.SearchProjectTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.092 s <<< FAILURE! - in com.tms.quannguyen.practice.tests.SearchProjectTest
+com.tms.quannguyen.practice.tests.SearchProjectTest.SearchProjectSuccess  Time elapsed: 0.067 s  <<< ERROR!
+java.lang.IllegalArgumentException: Input must be set
+	at com.tms.quannguyen.practice.tests.SearchProjectTest.SearchProjectSuccess(SearchProjectTest.java:42)
+

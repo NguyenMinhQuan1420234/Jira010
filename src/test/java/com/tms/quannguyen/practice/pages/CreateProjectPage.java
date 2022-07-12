@@ -45,7 +45,7 @@ public class CreateProjectPage extends BasePage {
     public static final By BTN_YEAR_2023 = By.xpath("//span[text()='2023']");
     public static final By BTN_MONTH_5 = By.xpath("//span[text()='May']");
 
-    public static final By DATE_PICKER_DAY(String text) { 
+    public static final By DATE_PICKER_DAY(String text) { // number with double digit 01->31
         return By.xpath(String.format("//span[@class='ng-binding'][text()='%s']", text));
     }
 
@@ -57,7 +57,7 @@ public class CreateProjectPage extends BasePage {
         clickElement(BTN_MONTH_YEAR);
         clickElement(BTN_YEAR_2023);
         clickElement(BTN_MONTH_5);
-        clickElement(DATE_PICKER_DAY("5"));
+        clickElement(DATE_PICKER_DAY("05"));
         // clickElement(BTN_EDATE_PICKER);
         // clickElement(BTN_TODAY);
     }
