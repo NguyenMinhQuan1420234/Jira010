@@ -55,6 +55,9 @@ public class BasePage {
         return element.getText();
     }
 
+    public List<WebElement> waitForListOfElementToBeVisible(By locator) {
+        return wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(locator));
+    }
 
     public WebElement waitForElementToBeVisible(By locator) {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));

@@ -40,6 +40,10 @@ public class SearchProjectPage extends BasePage {
         inputText(TXT_PROJECT_NAME, ConfigConstants.PRJ_SEARCH_NAME);
     }
 
+    public void inputSearchProjectName(String text) {
+        inputText(TXT_PROJECT_NAME, text);
+    }
+
     public void clickSearchButton() {
         clickElement(BTN_SEARCH);
     }
@@ -50,7 +54,7 @@ public class SearchProjectPage extends BasePage {
     }
 
     public List<WebElement> listOfProjectName(By locator) {
-        return (List<WebElement>) waitForElementToBeVisible(locator);
+        return (List<WebElement>) waitForListOfElementToBeVisible(locator);
 
     }
     

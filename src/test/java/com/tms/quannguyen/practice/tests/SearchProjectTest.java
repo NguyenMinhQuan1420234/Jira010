@@ -55,11 +55,12 @@ public class SearchProjectTest extends BaseTest {
         navigatePage = new NavigationPage(driver);
 
         searchProjectPage.clickSearchMenu();
-        searchProjectPage.inputSearchProjectNameDefault();
+        searchProjectPage.inputSearchProjectName("The");
         searchProjectPage.clickSearchButton();
 
-        navigatePage.verifyProjectName(ConfigConstants.PRJ_SEARCH_NAME, "quan-search-project-practice-UI");
-        
+        // navigatePage.verifyProjectName(ConfigConstants.PRJ_SEARCH_NAME, "quan");
+        navigatePage.verifyProjectName("The New Project 3", "The");
+
      }
 
      @AfterMethod

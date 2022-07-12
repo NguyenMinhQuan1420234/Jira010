@@ -1,5 +1,6 @@
 package com.tms.quannguyen.practice.pages;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -8,6 +9,9 @@ import org.openqa.selenium.WebElement;
 
 import com.github.dockerjava.api.model.Config;
 import com.tms.quannguyen.practice.contents.ConfigConstants;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.equalTo;
 
 public class NavigationPage extends BasePage {
 
@@ -27,8 +31,8 @@ public class NavigationPage extends BasePage {
         return By.xpath(String.format("//a[contains(text(),'%s')]", text));
     }
 
-    public List<WebElement> listOfProjectName(String text) {
-        return (List<WebElement>) waitForElementToBeVisible(listOfProjectNameLocator(text));
+    public ArrayList<WebElement> listOfProjectName(String text) {
+        return (ArrayList<WebElement>) waitForListOfElementToBeVisible(listOfProjectNameLocator(text));
 
     }
 
@@ -37,20 +41,34 @@ public class NavigationPage extends BasePage {
 
     }
  
-    public void verifyProjectName(String expected, String actual) {
-        List<WebElement> projectNameList = listOfProjectName(actual);
+    public void verifyProjectName(String expected, String search) {
+        ArrayList<WebElement> projectNameList = listOfProjectName(search);
         boolean flag = true;
-
-        while(flag) {
+        String name = "";
+        String actual = "";
+        while(flag == true) {
             for (WebElement projectName: projectNameList) {
-                String Name = projectName.getText();
-                if (expected == Name) {
+                name = projectName.getText();
+                System.out.println(name);
+                if (expected.equals(name)) {
+                    actual = name;
                     flag = false;
                     break;
                 }
+                
             }
-            clickElement(BTN_NEXT_PAGE);
+
+            try {
+                if (projectNameList.size() > 15) 
+                    clickElement(BTN_NEXT_PAGE);
+                else
+                    break;
+            } 
+            catch (Exception e) {
+                break;
+            }
         }
+        assertThat("Verify Message", expected, equalTo(actual));
     }
 
     //Create Page
