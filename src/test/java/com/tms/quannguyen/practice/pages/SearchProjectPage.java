@@ -16,8 +16,8 @@ public class SearchProjectPage extends BasePage {
     public static final By DDL_LOCATION = By.id("ddl-location");
     public static final By DDL_PROJECT_TYPE = By.id("ddl-projecttype");
     public static final By BTN_SEARCH = By.xpath("//search-project//button[@ng-click='search(input)']");
-    
 
+    public static final By SEARCH_RESULT_NAME = By.xpath("//a[contains(text(),'%s')]");
 
     public SearchProjectPage(WebDriver driver) {
         super(driver);

@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 import com.tms.quannguyen.practice.contents.ConfigConstants;
+import com.tms.quannguyen.practice.contents.UrlConstants;
 
 
 public class LoginPage extends BasePage {
@@ -20,10 +21,11 @@ public class LoginPage extends BasePage {
     }
     
     public void LoginSuccessfully() {  
-        LoginPage loginPage = new LoginPage(driver);
-        loginPage.inputUsername(ConfigConstants.USERNAME);
-        loginPage.inputPassword(ConfigConstants.PASSWORD);
-        loginPage.clickLoginBtn();
+        // LoginPage loginPage = new LoginPage(driver);
+        navigateUrl(UrlConstants.LOGIN_URL);
+        inputUsername(ConfigConstants.USERNAME);
+        inputPassword(ConfigConstants.PASSWORD);
+        clickLoginBtn();
     }
 
     public void inputUsername(String username) {

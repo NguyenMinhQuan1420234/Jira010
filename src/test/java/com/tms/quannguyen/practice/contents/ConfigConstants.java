@@ -1,7 +1,7 @@
 package com.tms.quannguyen.practice.contents;
 
 public class ConfigConstants {
-    public static final String BASE_URL = "http://192.168.237.10:3000/#!/login";
+    public static final String BASE_URL = "http://192.168.237.10:3000";
     public static final String USERNAME = "Admin2";
     public static final String PASSWORD = "qp$#tGu^";
     public static final String RQR_MSG = "This is a required field.";

@@ -21,28 +21,29 @@ import static org.hamcrest.Matchers.equalTo;
 
 public class CreateProjectTest extends BaseTest {
     
-    public WebDriver driver;
+    // public WebDriver driver;
     LoginPage loginPage;
     NavigationPage navigatePage;
     CreateProjectPage createProjectPage;
     SearchProjectPage searchProjectPage;
 
     @BeforeMethod
-    public void BeforeMethod() {
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.get(ConfigConstants.BASE_URL);
+    public void BeforeCreateProject() {
+        // WebDriverManager.chromedriver().setup();
+        // driver = new ChromeDriver();
+        // driver.manage().window().maximize();
+        // driver.get(ConfigConstants.BASE_URL);
 
         loginPage = new LoginPage(driver);
         loginPage.LoginSuccessfully();
+        System.out.println("Before Create");
     }
 
     @Test
     public void CreateProjectSuccess() {
-
+        
         createProjectPage = new CreateProjectPage(driver);
-        navigatePage = new NavigationPage(driver);
+        navigatePage = new NavigationPage(driver);  
 
         createProjectPage.clickCreateProjectDropdownList();
         createProjectPage.fillProjectInfomation();
