@@ -8,6 +8,7 @@ public class ConfigConstants {
     public static final String ERR_MSG = "The Username or Password you entered is incorrect";
     public static final String TXT_INPUT = "abcdef";
     public static final String PRJ_NAME = "quannguyen-practice-UI-Automation";
+    public static final String PRJ_SEARCH_NAME = "quan-search-project-practice-UI";
     public static final int TIMEOUT_IN_SECOND = 30;
     public static final int TIMEOUT_IN_DOWNLOAD_SECOND = 30;
 }

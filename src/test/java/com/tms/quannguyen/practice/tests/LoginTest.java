@@ -67,8 +67,8 @@ public class LoginTest extends BaseTest {
         loginPage = new LoginPage(driver);
         navigatePage = new NavigationPage(driver);
 
-        loginPage.inputUsername(ConfigConstants.USERNAME);
-        loginPage.inputPassword("");
+        loginPage.inputUsername("");
+        loginPage.inputPassword(ConfigConstants.PASSWORD);
         loginPage.clickLoginBtn();
         
         assertThat("verify message: ", navigatePage.requireMessage(), equalTo(ConfigConstants.RQR_MSG));

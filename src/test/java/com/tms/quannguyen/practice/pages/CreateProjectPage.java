@@ -36,24 +36,33 @@ public class CreateProjectPage extends BasePage {
     // Project information
     public static final By BTN_DELETE = By.xpath("//button[text()='Delete']");
     public static final By BTN_YES = By.xpath("//button[@ng-click='piC.deleteProject()']");
-    
+    /* ****************************************************************************************** */
     // Date picker
     public static final By BTN_SDATE_PICKER = By.xpath("//button[@ng-click='pcC.openSDatePicker()']");
     public static final By BTN_EDATE_PICKER = By.xpath("//button[@ng-click='pcC.openEDatePicker()']");
     public static final By BTN_TODAY = By.xpath("//button[text()='Today']");
-    
+    public static final By BTN_MONTH_YEAR = By.xpath("//button[@ng-disabled='datepickerMode === maxMode']");
+    public static final By BTN_YEAR_2023 = By.xpath("//span[text()='2023']");
+    public static final By BTN_MONTH_5 = By.xpath("//span[text()='May']");
 
     public static final By DATE_PICKER_DAY(String text) { 
-        // return By.xpath($"//span[@class='ng-binding'][text()='text']");
         return By.xpath(String.format("//span[@class='ng-binding'][text()='%s']", text));
     }
 
     public void PickToday() {
         clickElement(BTN_SDATE_PICKER);
         clickElement(BTN_TODAY);
+        clickElement(BTN_EDATE_PICKER);
+        clickElement(BTN_MONTH_YEAR);
+        clickElement(BTN_MONTH_YEAR);
+        clickElement(BTN_YEAR_2023);
+        clickElement(BTN_MONTH_5);
+        clickElement(DATE_PICKER_DAY("5"));
         // clickElement(BTN_EDATE_PICKER);
         // clickElement(BTN_TODAY);
     }
+
+    /* ****************************************************************************************** */
 
     //method
     public CreateProjectPage(WebDriver driver) {
