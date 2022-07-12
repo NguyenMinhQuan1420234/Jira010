@@ -39,7 +39,6 @@ public class SearchProjectTest {
         searchProjectPage = new SearchProjectPage(driver);
         navigatePage = new NavigationPage(driver);
 
-
         searchProjectPage.clickSearchMenu();
         searchProjectPage.inputSearchProjectNameDefault();
         searchProjectPage.clickSearchButton();
