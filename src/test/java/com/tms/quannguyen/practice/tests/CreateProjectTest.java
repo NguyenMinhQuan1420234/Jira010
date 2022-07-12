@@ -10,6 +10,7 @@ import org.testng.annotations.Test;
 
 import com.tms.quannguyen.practice.contents.ConfigConstants;
 import com.tms.quannguyen.practice.pages.CreateProjectPage;
+import com.tms.quannguyen.practice.pages.DatePickerPage;
 import com.tms.quannguyen.practice.pages.LoginPage;
 import com.tms.quannguyen.practice.pages.NavigationPage;
 import com.tms.quannguyen.practice.pages.SearchProjectPage;
@@ -26,6 +27,7 @@ public class CreateProjectTest extends BaseTest {
     NavigationPage navigatePage;
     CreateProjectPage createProjectPage;
     SearchProjectPage searchProjectPage;
+    DatePickerPage datePickerPage;
 
     @BeforeMethod
     public void BeforeCreateProject() {
@@ -36,19 +38,23 @@ public class CreateProjectTest extends BaseTest {
 
         loginPage = new LoginPage(driver);
         loginPage.LoginSuccessfully();
+
+        createProjectPage = new CreateProjectPage(driver);
+        navigatePage = new NavigationPage(driver);  
+        datePickerPage = new DatePickerPage(driver);
         System.out.println("Before Create");
     }
 
     @Test
     public void CreateProjectSuccess() {
         
-        createProjectPage = new CreateProjectPage(driver);
-        navigatePage = new NavigationPage(driver);  
-
         createProjectPage.clickCreateProjectDropdownList();
         createProjectPage.fillProjectInfomation();
         createProjectPage.selectProjectValue();
-        createProjectPage.PickToday();
+        datePickerPage.sdayOpen();
+        datePickerPage.datePicker("2042", "June", "29");
+        datePickerPage.edayOpen();
+        datePickerPage.datePicker("2068", "October", "15");
 
         createProjectPage.clickCreateButton();
 

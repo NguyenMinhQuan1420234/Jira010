@@ -1,7 +1,10 @@
 package com.tms.quannguyen.practice.pages;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
 import com.tms.quannguyen.practice.contents.ConfigConstants;
@@ -45,5 +48,11 @@ public class SearchProjectPage extends BasePage {
         Select element = elementSelect(locator);
         element.selectByIndex(number);
     }
+
+    public List<WebElement> listOfProjectName(By locator) {
+        return (List<WebElement>) waitForElementToBeVisible(locator);
+
+    }
+    
 
 }

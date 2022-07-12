@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import com.github.dockerjava.api.model.Config;
 import com.tms.quannguyen.practice.contents.ConfigConstants;
 
 public class NavigationPage extends BasePage {
@@ -19,9 +20,37 @@ public class NavigationPage extends BasePage {
     // Search Page
     private By SEARCH_RESULT = By.xpath(String.format("//a[text()='%s']",ConfigConstants.PRJ_SEARCH_NAME));
     public static final By SEARCH_RESULT_NAME = By.xpath("//a[contains(text(),'%s')]");
+    public static final By BTN_NEXT_PAGE = By.xpath("//a[@ng-click='setCurrent(pagination.current + 1)']");
+    public static final By BTN_NEXT_PAGE_DISABLE = By.xpath("//li[@class='ng-scope disabled']/a[@ng-click='setCurrent(pagination.current + 1)'']");
 
     public static final By listOfProjectNameLocator(String text) { // number with double digit 01->31
         return By.xpath(String.format("//a[contains(text(),'%s')]", text));
+    }
+
+    public List<WebElement> listOfProjectName(String text) {
+        return (List<WebElement>) waitForElementToBeVisible(listOfProjectNameLocator(text));
+
+    }
+
+    public String getProjectResultName(By locator) {
+        return getText(locator);
+
+    }
+ 
+    public void verifyProjectName(String expected, String actual) {
+        List<WebElement> projectNameList = listOfProjectName(actual);
+        boolean flag = true;
+
+        while(flag) {
+            for (WebElement projectName: projectNameList) {
+                String Name = projectName.getText();
+                if (expected == Name) {
+                    flag = false;
+                    break;
+                }
+            }
+            clickElement(BTN_NEXT_PAGE);
+        }
     }
 
     //Create Page

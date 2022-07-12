@@ -16,19 +16,20 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 
-public class SearchProjectTest {
-    public WebDriver driver;
+public class SearchProjectTest extends BaseTest {
+    // public WebDriver driver;
     LoginPage loginPage;
     NavigationPage navigatePage;
     SearchProjectPage searchProjectPage;
     
     @BeforeMethod
-    public void BeforeMethod() {
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.get(ConfigConstants.BASE_URL);
+    public void BeforeSearch() {
+        // WebDriverManager.chromedriver().setup();
+        // driver = new ChromeDriver();
+        // driver.manage().window().maximize();
+        // driver.get(ConfigConstants.BASE_URL);
         
+       
         loginPage = new LoginPage(driver);
         loginPage.LoginSuccessfully();
     }
@@ -45,6 +46,20 @@ public class SearchProjectTest {
 
         assertThat("verify project name: ", navigatePage.resultProjectName(), equalTo(ConfigConstants.PRJ_SEARCH_NAME));
 
+     }
+
+     @Test
+     public void searchProjectByMethod() {
+
+        searchProjectPage = new SearchProjectPage(driver);
+        navigatePage = new NavigationPage(driver);
+
+        searchProjectPage.clickSearchMenu();
+        searchProjectPage.inputSearchProjectNameDefault();
+        searchProjectPage.clickSearchButton();
+
+        navigatePage.verifyProjectName(ConfigConstants.PRJ_SEARCH_NAME, "quan-search-project-practice-UI");
+        
      }
 
      @AfterMethod

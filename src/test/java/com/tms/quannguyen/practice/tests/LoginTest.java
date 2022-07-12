@@ -22,7 +22,7 @@ import static org.hamcrest.Matchers.equalTo;
 
 public class LoginTest extends BaseTest {
     
-    public WebDriver driver;
+    // public WebDriver driver;
     LoginPage loginPage;
     NavigationPage navigatePage;
 
