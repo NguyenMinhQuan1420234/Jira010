@@ -6,9 +6,9 @@ import org.testng.annotations.BeforeMethod;
 
 import com.fasterxml.jackson.databind.JsonSerializable.Base;
 import com.tms.quannguyen.practice.pages.CreateProjectPage;
-import com.tms.quannguyen.practice.pages.DatePickerPage;
 import com.tms.quannguyen.practice.pages.LoginPage;
 import com.tms.quannguyen.practice.pages.NavigationPage;
+import com.tms.quannguyen.practice.pages.helper.DatePickerPage;
 
 public class DatePickerTest extends BaseTest {
     LoginPage loginPage;

@@ -10,10 +10,10 @@ import org.testng.annotations.Test;
 
 import com.tms.quannguyen.practice.contents.ConfigConstants;
 import com.tms.quannguyen.practice.pages.CreateProjectPage;
-import com.tms.quannguyen.practice.pages.DatePickerPage;
 import com.tms.quannguyen.practice.pages.LoginPage;
 import com.tms.quannguyen.practice.pages.NavigationPage;
 import com.tms.quannguyen.practice.pages.SearchProjectPage;
+import com.tms.quannguyen.practice.pages.helper.DatePickerPage;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
