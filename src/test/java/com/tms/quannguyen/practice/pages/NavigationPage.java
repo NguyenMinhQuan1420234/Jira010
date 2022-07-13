@@ -45,30 +45,21 @@ public class NavigationPage extends BasePage {
         ArrayList<WebElement> projectNameList = listOfProjectName(search);
         boolean flag = true;
         String name = "";
-        String actual = "";
+        
         while(flag == true) {
             for (WebElement projectName: projectNameList) {
                 name = projectName.getText();
                 System.out.println(name);
-                if (expected.equals(name)) {
-                    actual = name;
-                    flag = false;
-                    break;
-                }
+                if (expected.equals(name)) 
+                    assertThat("Verify Message", expected, equalTo(name));
                 
             }
-
-            try {
-                if (projectNameList.size() > 15) 
-                    clickElement(BTN_NEXT_PAGE);
-                else
-                    break;
-            } 
-            catch (Exception e) {
+            if (projectNameList.size() > 15) 
+                clickElement(BTN_NEXT_PAGE);
+            else
                 break;
-            }
         }
-        assertThat("Verify Message", expected, equalTo(actual));
+
     }
 
     //Create Page

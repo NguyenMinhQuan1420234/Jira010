@@ -1,7 +1,9 @@
-package com.tms.quannguyen.practice.pages;
+package com.tms.quannguyen.practice.pages.helper;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+
+import com.tms.quannguyen.practice.pages.BasePage;
 
 public class DatePickerPage extends BasePage {
 
