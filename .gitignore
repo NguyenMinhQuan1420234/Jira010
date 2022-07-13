@@ -1,0 +1,10 @@
+src/.DS_Store
+src/test/.DS_Store
+src/test/java/.DS_Store
+src/test/java/com/.DS_Store
+src/test/java/com/tms/.DS_Store
+src/test/java/com/tms/quannguyen/.DS_Store
+target/test-classes/.DS_Store
+target/test-classes/com/.DS_Store
+target/test-classes/com/tms/.DS_Store
+target/test-classes/com/tms/quannguyen/.DS_Store
