@@ -24,6 +24,7 @@
     <webdrivermanager.version>5.2.1</webdrivermanager.version>
     <org.seleniumhq.selenium.version>4.3.0</org.seleniumhq.selenium.version>
     <testng.version>7.6.1</testng.version>
+    <gson.version>2.9.0</gson.version>
     <!-- JaCoCo thresholds. Increase gradually as you add tests. -->
     <jacoco.unit-tests.limit.instruction-ratio>0%</jacoco.unit-tests.limit.instruction-ratio>
     <jacoco.unit-tests.limit.branch-ratio>0%</jacoco.unit-tests.limit.branch-ratio>
@@ -31,6 +32,12 @@
     <jacoco.unit-tests.limit.method-complexity>5</jacoco.unit-tests.limit.method-complexity>
   </properties>
   <dependencies>
+    <!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
+    <dependency>
+      <groupId>com.google.code.gson</groupId>
+      <artifactId>gson</artifactId>
+      <version>${gson.version}</version>
+    </dependency>
 
     <dependency>
       <groupId>org.projectlombok</groupId>

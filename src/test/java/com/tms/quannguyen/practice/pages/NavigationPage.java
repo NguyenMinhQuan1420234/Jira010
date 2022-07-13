@@ -12,6 +12,8 @@ import com.tms.quannguyen.practice.contents.ConfigConstants;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.CoreMatchers.containsString;
 
 public class NavigationPage extends BasePage {
 
@@ -27,7 +29,7 @@ public class NavigationPage extends BasePage {
     public static final By BTN_NEXT_PAGE = By.xpath("//a[@ng-click='setCurrent(pagination.current + 1)']");
     public static final By BTN_NEXT_PAGE_DISABLE = By.xpath("//li[@class='ng-scope disabled']/a[@ng-click='setCurrent(pagination.current + 1)'']");
 
-    public static final By listOfProjectNameLocator(String text) { // number with double digit 01->31
+    public static final By listOfProjectNameLocator(String text) { 
         return By.xpath(String.format("//a[contains(text(),'%s')]", text));
     }
 
@@ -49,9 +51,9 @@ public class NavigationPage extends BasePage {
         while(flag == true) {
             for (WebElement projectName: projectNameList) {
                 name = projectName.getText();
-                System.out.println(name);
-                if (expected.equals(name)) 
-                    assertThat("Verify Message", expected, equalTo(name));
+                assertThat(name, containsString(search));
+                // if (expected.equals(name)) 
+                    // assertThat("Verify Message", expected, equalTo(name));
                 
             }
             if (projectNameList.size() > 15) 
@@ -59,6 +61,7 @@ public class NavigationPage extends BasePage {
             else
                 break;
         }
+        
 
     }
 
