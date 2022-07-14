@@ -23,20 +23,13 @@ public class SearchProjectTest extends BaseTest {
     SearchProjectPage searchProjectPage;
     
     @BeforeMethod
-    public void BeforeSearch() {
-        // WebDriverManager.chromedriver().setup();
-        // driver = new ChromeDriver();
-        // driver.manage().window().maximize();
-        // driver.get(ConfigConstants.BASE_URL);
-        
-       
+    public void BeforeSearch() {       
         loginPage = new LoginPage(driver);
         loginPage.LoginSuccessfully();
     }
 
      @Test
      public void searchProjectSuccess() {
-
         searchProjectPage = new SearchProjectPage(driver);
         navigatePage = new NavigationPage(driver);
 
@@ -45,12 +38,10 @@ public class SearchProjectTest extends BaseTest {
         searchProjectPage.clickSearchButton();
 
         assertThat("verify project name: ", navigatePage.resultProjectName(), equalTo(ConfigConstants.PRJ_SEARCH_NAME));
-
      }
 
      @Test
      public void searchProjectByMethod() {
-
         searchProjectPage = new SearchProjectPage(driver);
         navigatePage = new NavigationPage(driver);
 
@@ -60,12 +51,7 @@ public class SearchProjectTest extends BaseTest {
 
         // navigatePage.verifyProjectName(ConfigConstants.PRJ_SEARCH_NAME, "quan");
         navigatePage.verifyProjectName("The New Project 3", "The");
-
      }
 
-     @AfterMethod
-     public void AfterMethod() {
-         driver.quit();
-     }
 
 }
