@@ -25,14 +25,14 @@ public class DatePickerTest extends BaseTest {
         loginPage.LoginSuccessfully();
     }
     
-    @Test
-    public void PickDate() {
-        createProjectPage.clickCreateProjectDropdownList();
-        datePickerPage.sdayOpen();
-        datePickerPage.datePicker("2044", "May", "02"); // YYYY-MM-DD
-        datePickerPage.edayOpen();
-        datePickerPage.datePicker("2045", "September", "30"); 
-    }
+    // @Test
+    // public void PickDate() {
+    //     createProjectPage.clickCreateProjectDropdownList();
+    //     datePickerPage.sdayOpen();
+    //     datePickerPage.datePicker("2044", "May", "02"); // YYYY-MM-DD
+    //     datePickerPage.edayOpen();
+    //     datePickerPage.datePicker("2045", "September", "30"); 
+    // }
 }
 
     

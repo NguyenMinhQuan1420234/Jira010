@@ -26,15 +26,6 @@ public class LoginTest extends BaseTest {
     LoginPage loginPage;
     NavigationPage navigatePage;
 
-    @BeforeMethod
-    public void BeforeMethod() {
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.get(ConfigConstants.BASE_URL);
-
-    }
-
     @Test(priority = 0, description = "Login with valid Admin account")
     public void LoginSuccessfulCase() throws InterruptedException {
 
@@ -98,10 +89,5 @@ public class LoginTest extends BaseTest {
         loginPage.clickLoginBtn();
         
         assertThat("verify message: ", navigatePage.errorMessage(), equalTo(ConfigConstants.ERR_MSG));
-    }
-
-    @AfterMethod
-    public void AfterMethod() {
-        driver.quit();
     }
 }

@@ -48,10 +48,10 @@ public class NavigationPage extends BasePage {
         boolean flag = true;
         String name = "";
         
-        while(flag == true) {
+        while(flag) {
             for (WebElement projectName: projectNameList) {
                 name = projectName.getText();
-                assertThat(name, containsString(search));
+                assertThat("verify message:", name, containsString(search));
                 // if (expected.equals(name)) 
                     // assertThat("Verify Message", expected, equalTo(name));
                 
@@ -61,8 +61,6 @@ public class NavigationPage extends BasePage {
             else
                 break;
         }
-        
-
     }
 
     //Create Page

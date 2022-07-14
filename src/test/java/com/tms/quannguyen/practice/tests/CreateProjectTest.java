@@ -22,7 +22,6 @@ import static org.hamcrest.Matchers.equalTo;
 
 public class CreateProjectTest extends BaseTest {
     
-    // public WebDriver driver;
     LoginPage loginPage;
     NavigationPage navigatePage;
     CreateProjectPage createProjectPage;
@@ -31,10 +30,6 @@ public class CreateProjectTest extends BaseTest {
 
     @BeforeMethod
     public void BeforeCreateProject() {
-        // WebDriverManager.chromedriver().setup();
-        // driver = new ChromeDriver();
-        // driver.manage().window().maximize();
-        // driver.get(ConfigConstants.BASE_URL);
 
         loginPage = new LoginPage(driver);
         loginPage.LoginSuccessfully();
@@ -62,9 +57,8 @@ public class CreateProjectTest extends BaseTest {
     }
 
     @AfterMethod
-    public void AfterMethod() {
+    public void DeleteProject() {
         createProjectPage.deleteProject();
-        driver.quit();
     }
 
 }
