@@ -20,7 +20,7 @@
     <log4j-core.version>2.18.0</log4j-core.version>
     <com.relevantcodes.extentreports.version>2.41.2</com.relevantcodes.extentreports.version>
     <org.hamcrest.version>2.2</org.hamcrest.version>
-    <com.aventstack.extentreports>5.0.8</com.aventstack.extentreports>
+    <com.aventstack.extentreports>5.0.9</com.aventstack.extentreports>
     <webdrivermanager.version>5.2.1</webdrivermanager.version>
     <org.seleniumhq.selenium.version>4.3.0</org.seleniumhq.selenium.version>
     <testng.version>7.6.1</testng.version>

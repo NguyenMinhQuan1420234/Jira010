@@ -15,6 +15,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
+import static org.junit.jupiter.api.Assertions.fail;
 
 public class SearchProjectTest extends BaseTest {
     // public WebDriver driver;
