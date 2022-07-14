@@ -1,8 +1,12 @@
 package com.tms.quannguyen.practice.pages;
 
 import java.util.List;
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -60,8 +64,18 @@ public class SearchProjectPage extends BasePage {
 
     }
 
-    public void zoomOutSearchPage() {
-        zoomOutWeb(HTML);
+    public void zoomOutSearchPage() throws AWTException {
+        // Robot robot = new Robot();
+		// System.out.println("About to zoom out");
+		// for (int i = 0; i < 2; i++) {
+		// 	robot.keyPress(KeyEvent.VK_CONTROL);
+		// 	robot.keyPress(KeyEvent.VK_SUBTRACT);
+		// 	robot.keyRelease(KeyEvent.VK_SUBTRACT);
+		// 	robot.keyRelease(KeyEvent.VK_CONTROL);
+		// }
+        WebElement html = driver.findElement(By.tagName("html"));
+        moveToElement(TXT_PROJECT_NAME);
+        waitForElementToBeClickable(TXT_PROJECT_NAME).sendKeys(Keys.chord(Keys.CONTROL, Keys.SUBTRACT));
     }
 
 }

@@ -43,7 +43,7 @@ public class BasePage {
     }
 
     public void clickElement(By locator) {
-        WebElement element = waitForElementToBeVisible(locator);
+        WebElement element = waitForElementToBeClickable(locator);
         element.click();
     }
 
@@ -71,9 +71,18 @@ public class BasePage {
 
     public void zoomOutWeb(By locator) {
         WebElement element = waitForElementToBeVisible(locator);
+        // Actions action = new Actions(driver);
+        // action.keyDown(Keys.CONTROL);
+        // action.sendKeys(Keys.SUBTRACT);
+        // action.perform();
+        WebElement html = driver.findElement(By.tagName("html"));
+        html.sendKeys(Keys.chord(Keys.CONTROL, Keys.ADD));
+    }
+
+    public void moveToElement(By locator) {
+        WebElement element = waitForElementToBeVisible(locator);
         Actions action = new Actions(driver);
-        action.keyDown(Keys.CONTROL);
-        action.sendKeys(Keys.SUBTRACT);
+        action.moveToElement(element);
         action.perform();
     }
 }
