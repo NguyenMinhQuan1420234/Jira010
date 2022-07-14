@@ -13,7 +13,7 @@ import com.tms.quannguyen.practice.pages.CreateProjectPage;
 import com.tms.quannguyen.practice.pages.LoginPage;
 import com.tms.quannguyen.practice.pages.NavigationPage;
 import com.tms.quannguyen.practice.pages.SearchProjectPage;
-import com.tms.quannguyen.practice.pages.helper.DatePickerPage;
+import com.tms.quannguyen.practice.pages.Shared.DatePickerPage;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
