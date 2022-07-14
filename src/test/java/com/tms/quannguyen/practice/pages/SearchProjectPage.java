@@ -21,6 +21,8 @@ public class SearchProjectPage extends BasePage {
     public static final By BTN_SEARCH = By.xpath("//search-project//button[@ng-click='search(input)']");
 
     public static final By SEARCH_RESULT_NAME = By.xpath("//a[contains(text(),'%s')]");
+    public static final By HTML = By.cssSelector("html[ng-app='TMS']");
+    public static final By TITLE = By.xpath("//b[@class='ng-binding']");
 
     public SearchProjectPage(WebDriver driver) {
         super(driver);
@@ -57,6 +59,9 @@ public class SearchProjectPage extends BasePage {
         return (List<WebElement>) waitForListOfElementToBeVisible(locator);
 
     }
-    
+
+    public void zoomOutSearchPage() {
+        zoomOutWeb(HTML);
+    }
 
 }

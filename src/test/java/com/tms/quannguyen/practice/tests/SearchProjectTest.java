@@ -1,6 +1,7 @@
 package com.tms.quannguyen.practice.tests;
 
 import org.testng.annotations.Test;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
@@ -25,6 +26,10 @@ public class SearchProjectTest extends BaseTest {
     
     @BeforeMethod
     public void BeforeSearch() {       
+        Dimension originalDim = driver.manage().window().getSize();
+        driver.manage().window().setSize(new Dimension(1500, 1000));
+        driver.manage().window().setSize(new Dimension(originalDim.getWidth() + 100, originalDim.getHeight() + 50));
+        driver.manage().window().setSize(new Dimension(originalDim.getWidth() - 200, originalDim.getHeight() - 50));
         loginPage = new LoginPage(driver);
         loginPage.LoginSuccessfully();
     }
@@ -49,10 +54,16 @@ public class SearchProjectTest extends BaseTest {
         searchProjectPage.clickSearchMenu();
         searchProjectPage.inputSearchProjectName("The");
         searchProjectPage.clickSearchButton();
-
+        searchProjectPage.zoomOutSearchPage();
+        searchProjectPage.driver.manage().window().maximize();
         // navigatePage.verifyProjectName(ConfigConstants.PRJ_SEARCH_NAME, "quan");
         navigatePage.verifyProjectName("The New Project 3", "The");
+        
+        
      }
 
-
+     @AfterMethod
+     public void AfterMethod() {
+         System.out.println("pause");
+     }
 }
