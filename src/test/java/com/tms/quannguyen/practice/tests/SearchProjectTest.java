@@ -9,8 +9,8 @@ import org.testng.annotations.BeforeMethod;
 
 import com.tms.quannguyen.practice.contents.ConfigConstants;
 import com.tms.quannguyen.practice.pages.LoginPage;
-import com.tms.quannguyen.practice.pages.NavigationPage;
 import com.tms.quannguyen.practice.pages.SearchProjectPage;
+import com.tms.quannguyen.practice.pages.Shared.NavigationPage;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 

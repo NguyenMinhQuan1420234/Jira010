@@ -13,7 +13,7 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.tms.quannguyen.practice.contents.ConfigConstants;
 import com.tms.quannguyen.practice.pages.LoginPage;
-import com.tms.quannguyen.practice.pages.NavigationPage;
+import com.tms.quannguyen.practice.pages.Shared.NavigationPage;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -49,7 +49,7 @@ public class LoginTest extends BaseTest {
         loginPage.inputPassword("");
         loginPage.clickLoginBtn();
 
-        assertThat("verify message: ", navigatePage.requireMessage(), equalTo(ConfigConstants.RQR_MSG));
+        assertThat("verify message: ", navigatePage.requireMessage(), equalTo(loginPage.RQR_MSG));
     }
 
     @Test(priority = 1, description = "Login with empty username")
@@ -62,7 +62,7 @@ public class LoginTest extends BaseTest {
         loginPage.inputPassword(ConfigConstants.PASSWORD);
         loginPage.clickLoginBtn();
         
-        assertThat("verify message: ", navigatePage.requireMessage(), equalTo(ConfigConstants.RQR_MSG));
+        assertThat("verify message: ", navigatePage.requireMessage(), equalTo(loginPage.RQR_MSG));
     }
 
     @Test(priority = 1, description = "Login with empty username and password")
@@ -75,7 +75,7 @@ public class LoginTest extends BaseTest {
         loginPage.inputPassword("");
         loginPage.clickLoginBtn();
         
-        assertThat("verify message: ", navigatePage.requireMessage(), equalTo(ConfigConstants.RQR_MSG));
+        assertThat("verify message: ", navigatePage.requireMessage(), equalTo(loginPage.RQR_MSG));
     }
 
     @Test(priority = 2, description = "Login with invalid username and password")
@@ -88,6 +88,6 @@ public class LoginTest extends BaseTest {
         loginPage.inputPassword("qp$#tGu3");
         loginPage.clickLoginBtn();
         
-        assertThat("verify message: ", navigatePage.errorMessage(), equalTo(ConfigConstants.ERR_MSG));
+        assertThat("verify message: ", navigatePage.errorMessage(), equalTo(loginPage.ERR_MSG));
     }
 }

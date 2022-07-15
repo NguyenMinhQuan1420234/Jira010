@@ -11,9 +11,9 @@ import org.testng.annotations.Test;
 import com.tms.quannguyen.practice.contents.ConfigConstants;
 import com.tms.quannguyen.practice.pages.CreateProjectPage;
 import com.tms.quannguyen.practice.pages.LoginPage;
-import com.tms.quannguyen.practice.pages.NavigationPage;
 import com.tms.quannguyen.practice.pages.SearchProjectPage;
 import com.tms.quannguyen.practice.pages.Shared.DatePickerPage;
+import com.tms.quannguyen.practice.pages.Shared.NavigationPage;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -41,7 +41,7 @@ public class CreateProjectTest extends BaseTest {
     }
 
     @Test
-    public void CreateProjectSuccess() {
+    public void CreateProjectSuccessfully() {
         
         createProjectPage.clickCreateProjectDropdownList();
         createProjectPage.fillProjectInfomation();
