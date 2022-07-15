@@ -75,8 +75,7 @@ public class BasePage {
         // action.keyDown(Keys.CONTROL);
         // action.sendKeys(Keys.SUBTRACT);
         // action.perform();
-        WebElement html = driver.findElement(By.tagName("html"));
-        html.sendKeys(Keys.chord(Keys.CONTROL, Keys.ADD));
+        element.sendKeys(Keys.chord(Keys.CONTROL, Keys.ADD));
     }
 
     public void moveToElement(By locator) {

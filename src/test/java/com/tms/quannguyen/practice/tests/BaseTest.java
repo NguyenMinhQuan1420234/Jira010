@@ -6,6 +6,8 @@ import com.tms.quannguyen.practice.pages.LoginPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
@@ -30,9 +32,14 @@ public class BaseTest {
     @BeforeMethod
     public void BeforeMethod() throws InterruptedException {
         WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
+        ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.addArguments("--incognito");
+        driver = new ChromeDriver(chromeOptions);
         driver.manage().window().maximize();
         driver.get(ConfigConstants.BASE_URL);
+
+        // WebDriverManager.edgedriver().setup();
+        // driver = new EdgeDriver();
 
         // loginPage = new LoginPage(driver);
         // loginPage.LoginSuccessfully();

@@ -4,11 +4,15 @@ import java.util.List;
 import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
+import java.security.Key;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.interactions.WheelInput;
+import org.openqa.selenium.interactions.WheelInput.ScrollOrigin;
 import org.openqa.selenium.support.ui.Select;
 
 import com.tms.quannguyen.practice.contents.ConfigConstants;
@@ -60,6 +64,19 @@ public class SearchProjectPage extends BasePage {
     }
 
     public void zoomOutSearchPage() throws AWTException {
+        WebElement textboxSearchProject = driver.findElement(TXT_PROJECT_NAME);
+        Actions a = new Actions(driver);
+        WebElement footer = driver.findElement(By.tagName("footer"));
+        int deltaY = footer.getRect().y;
+        WheelInput.ScrollOrigin scrollOrigin = WheelInput.ScrollOrigin.fromElement(textboxSearchProject);
+        a.moveToElement(textboxSearchProject).click();
+        a.sendKeys(Keys.EQUALS);
+        a.keyDown(Keys.LEFT_CONTROL);
+        a.scrollFromOrigin(scrollOrigin, 120, 0);
+        a.keyDown(Keys.SUBTRACT);
+        a.keyUp(Keys.SUBTRACT);
+        a.perform();
+        textboxSearchProject.sendKeys(Keys.NUMPAD0);
         // Robot robot = new Robot();
         // System.out.println("About to zoom out");
         // for (int i = 0; i < 2; i++) {
@@ -68,9 +85,25 @@ public class SearchProjectPage extends BasePage {
         // robot.keyRelease(KeyEvent.VK_SUBTRACT);
         // robot.keyRelease(KeyEvent.VK_CONTROL);
         // }
-        WebElement html = driver.findElement(By.tagName("html"));
-        moveToElement(TXT_PROJECT_NAME);
-        waitForElementToBeClickable(TXT_PROJECT_NAME).sendKeys(Keys.chord(Keys.CONTROL, Keys.SUBTRACT));
-    }
 
+        // WebElement html = driver.findElement(By.tagName("html"));
+        // moveToElement(TXT_PROJECT_NAME);
+        // waitForElementToBeClickable(TXT_PROJECT_NAME).sendKeys(Keys.chord(Keys.CONTROL, Keys.SUBTRACT));
+        
+        // System.out.println("zooming");
+        // // To zoom in 3 times
+        // for(int i=0; i< 3 ; i++){
+        // waitForElementToBeVisible(By.cssSelector("html[ng-app='TMS']")).sendKeys(Keys.chord(Keys.CONTROL,Keys.ADD));
+        // }
+        // // To zoom out 3 times
+        // for(int i=0; i  < 3 ; i++){
+        // driver.findElement(By.tagName("html")).sendKeys(Keys.chord(Keys.CONTROL,Keys.SUBTRACT));
+        // }
+        // //To set the browser to default zoom level ie., 100%
+        // driver.findElement(By.tagName("html")).sendKeys(Keys.chord(Keys.CONTROL, "0"));
+    }
+    
+    public void zoom() {
+        zoomOutWeb(HTML);
+    }
 }

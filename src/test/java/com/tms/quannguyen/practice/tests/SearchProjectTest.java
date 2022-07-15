@@ -44,6 +44,7 @@ public class SearchProjectTest extends BaseTest {
         searchProjectPage.clickSearchMenu();
         searchProjectPage.inputSearchProjectNameDefault();
         searchProjectPage.clickSearchButton();
+        searchProjectPage.zoom();
 
         assertThat("verify project name: ", navigatePage.resultProjectName(), equalTo(ConfigConstants.PRJ_SEARCH_NAME));
      }
@@ -57,15 +58,14 @@ public class SearchProjectTest extends BaseTest {
         searchProjectPage.inputSearchProjectName("The");
         searchProjectPage.clickSearchButton();
         searchProjectPage.zoomOutSearchPage();
+        searchProjectPage.zoom();
         // searchProjectPage.driver.manage().window().maximize();
         // navigatePage.verifyProjectName(ConfigConstants.PRJ_SEARCH_NAME, "quan");
         navigatePage.verifyProjectName("The New Project 3", "The");
-        
-        
      }
 
      @AfterMethod
      public void AfterMethod() {
-         System.out.println("pause");
+        System.out.println("pause");
      }
 }
