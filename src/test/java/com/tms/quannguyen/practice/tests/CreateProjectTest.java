@@ -32,7 +32,7 @@ public class CreateProjectTest extends BaseTest {
     public void BeforeCreateProject() {
 
         loginPage = new LoginPage(driver);
-        loginPage.LoginSuccessfully();
+        loginPage.LoginWithUsernameAndPassword();
 
         createProjectPage = new CreateProjectPage(driver);
         navigatePage = new NavigationPage(driver);  

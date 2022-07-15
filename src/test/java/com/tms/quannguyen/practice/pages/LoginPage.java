@@ -22,9 +22,7 @@ public class LoginPage extends BasePage {
         //TODO Auto-generated constructor stub
     }
     
-    public void LoginSuccessfully() {  
-        // LoginPage loginPage = new LoginPage(driver);
-        navigateUrl(UrlConstants.LOGIN_URL);
+    public void LoginWithUsernameAndPassword() {  
         inputUsername(ConfigConstants.USERNAME);
         inputPassword(ConfigConstants.PASSWORD);
         clickLoginBtn();

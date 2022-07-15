@@ -28,12 +28,8 @@ public class SearchProjectTest extends BaseTest {
     
     @BeforeMethod
     public void BeforeSearch() {       
-      //   Dimension originalDim = driver.manage().window().getSize();
-      //   driver.manage().window().setSize(new Dimension(1500, 1000));
-      //   driver.manage().window().setSize(new Dimension(originalDim.getWidth() + 100, originalDim.getHeight() + 50));
-      //   driver.manage().window().setSize(new Dimension(originalDim.getWidth() - 200, originalDim.getHeight() - 50));
         loginPage = new LoginPage(driver);
-        loginPage.LoginSuccessfully();
+        loginPage.LoginWithUsernameAndPassword();
     }
 
      @Test
