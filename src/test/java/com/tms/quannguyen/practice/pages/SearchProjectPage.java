@@ -30,12 +30,12 @@ public class SearchProjectPage extends BasePage {
 
     public SearchProjectPage(WebDriver driver) {
         super(driver);
-        //TODO Auto-generated constructor stub
+        // TODO Auto-generated constructor stub
     }
 
     public void searchProjectName(String username) {
         inputText(TXT_PROJECT_NAME, username);
-    } 
+    }
 
     public void clickSearchMenu() {
         clickElement(BTN_DROPDOWN_PROJECT);
@@ -54,11 +54,6 @@ public class SearchProjectPage extends BasePage {
         clickElement(BTN_SEARCH);
     }
 
-    public void elementSelectByIndex(By locator, int number) {
-        Select element = elementSelect(locator);
-        element.selectByIndex(number);
-    }
-
     public List<WebElement> listOfProjectName(By locator) {
         return (List<WebElement>) waitForListOfElementToBeVisible(locator);
 
@@ -66,13 +61,13 @@ public class SearchProjectPage extends BasePage {
 
     public void zoomOutSearchPage() throws AWTException {
         // Robot robot = new Robot();
-		// System.out.println("About to zoom out");
-		// for (int i = 0; i < 2; i++) {
-		// 	robot.keyPress(KeyEvent.VK_CONTROL);
-		// 	robot.keyPress(KeyEvent.VK_SUBTRACT);
-		// 	robot.keyRelease(KeyEvent.VK_SUBTRACT);
-		// 	robot.keyRelease(KeyEvent.VK_CONTROL);
-		// }
+        // System.out.println("About to zoom out");
+        // for (int i = 0; i < 2; i++) {
+        // robot.keyPress(KeyEvent.VK_CONTROL);
+        // robot.keyPress(KeyEvent.VK_SUBTRACT);
+        // robot.keyRelease(KeyEvent.VK_SUBTRACT);
+        // robot.keyRelease(KeyEvent.VK_CONTROL);
+        // }
         WebElement html = driver.findElement(By.tagName("html"));
         moveToElement(TXT_PROJECT_NAME);
         waitForElementToBeClickable(TXT_PROJECT_NAME).sendKeys(Keys.chord(Keys.CONTROL, Keys.SUBTRACT));

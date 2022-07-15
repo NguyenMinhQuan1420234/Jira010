@@ -1,4 +1,4 @@
-package com.tms.quannguyen.practice.pages;
+package com.tms.quannguyen.practice.pages.Shared;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,6 +9,7 @@ import org.openqa.selenium.WebElement;
 
 import com.github.dockerjava.api.model.Config;
 import com.tms.quannguyen.practice.contents.ConfigConstants;
+import com.tms.quannguyen.practice.pages.BasePage;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;

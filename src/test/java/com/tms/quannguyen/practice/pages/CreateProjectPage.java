@@ -7,68 +7,57 @@ import org.openqa.selenium.support.ui.Select;
 
 import com.tms.quannguyen.practice.contents.ConfigConstants;
 
+import lombok.ToString;
+
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+
 public class CreateProjectPage extends BasePage {
     // Search Page Button
-    public static final By BTN_DROPDOWN_PROJECT = By.xpath("//a[contains(text(),'Projects')]");
-    public static final By OPT_CREATE_PROJECT = By.xpath("//a[contains(text(),'Create Project')]");
-    public static final By OPT_SEARCH_PROJECT = By.xpath("//a[contains(text(),'Search Project')]");
+    private static final By BTN_DROPDOWN_PROJECT = By.xpath("//a[contains(text(),'Projects')]");
+    private static final By OPT_CREATE_PROJECT = By.xpath("//a[contains(text(),'Create Project')]");
+    private static final By OPT_SEARCH_PROJECT = By.xpath("//a[contains(text(),'Search Project')]");
 
     // Create Project Form
-    public static final By TXT_PROJECT_NAME = By.id("name");
-    public static final By DDL_PROJECT_TYPE = By.id("projecttype");
-    public static final By DDL_PROJECT_STATUS = By.id("status");
-    public static final By DDL_START_DATE = By.cssSelector("input[name='sdate']");
-    public static final By DDL_END_DATE = By.cssSelector("input[name='edate']");
-    public static final By TXT_SIZEDAY = By.id("sizeday");
-    public static final By DDL_LOCATION = By.id("location");
-    public static final By DDL_PROJECT_MANAGER = By.id("projectManager");
-    public static final By DDL_DELIVERY_MANAGER = By.id("deliveryManager");
-    public static final By DDL_ENGAGEMENT_MANAGER = By.id("engagementManager");
-    public static final By TXT_SHORT_DESCRIPTION = By.id("shortDescription");
-    public static final By TXT_LONG_DESCRIPTION = By.id("longDescription");
-    public static final By TXT_TECHNOLOGIES = By.id("technologies");
-    public static final By TXT_CLIENTNAME = By.id("clientName");
-    public static final By DDL_CLIENT_INDUSTRY = By.id("clientindustry");
-    public static final By TXT_CLIENT_DESCRIPTION = By.id("clientdescription");
-    public static final By BTN_CREATE = By.cssSelector("project-create button[type='submit']");
-    public static final By BTN_CANCEL = By.xpath("//button[@ng-click='pcC.cancel()']");
-    
+    private static final By TXT_PROJECT_NAME = By.id("name");
+    private static final By DDL_PROJECT_TYPE = By.id("projecttype");
+    private static final By DDL_PROJECT_STATUS = By.id("status");
+    private static final By DDL_START_DATE = By.cssSelector("input[name='sdate']");
+    private static final By DDL_END_DATE = By.cssSelector("input[name='edate']");
+    private static final By TXT_SIZEDAY = By.id("sizeday");
+    private static final By DDL_LOCATION = By.id("location");
+    private static final By DDL_PROJECT_MANAGER = By.id("projectManager");
+    private static final By DDL_DELIVERY_MANAGER = By.id("deliveryManager");
+    private static final By DDL_ENGAGEMENT_MANAGER = By.id("engagementManager");
+    private static final By TXT_SHORT_DESCRIPTION = By.id("shortDescription");
+    private static final By TXT_LONG_DESCRIPTION = By.id("longDescription");
+    private static final By TXT_TECHNOLOGIES = By.id("technologies");
+    private static final By TXT_CLIENTNAME = By.id("clientName");
+    private static final By DDL_CLIENT_INDUSTRY = By.id("clientindustry");
+    private static final By TXT_CLIENT_DESCRIPTION = By.id("clientdescription");
+    private static final By BTN_CREATE = By.cssSelector("project-create button[type='submit']");
+    private static final By BTN_CANCEL = By.xpath("//button[@ng-click='pcC.cancel()']");
+
     // Delete Project information
-    public static final By BTN_DELETE = By.xpath("//button[text()='Delete']");
-    public static final By BTN_YES = By.xpath("//button[@ng-click='piC.deleteProject()']");
-    public static final By ALT_MSG = By.xpath("//span[@data-notify='message']");
-    /* ****************************************************************************************** */
+    private static final By BTN_DELETE = By.xpath("//button[text()='Delete']");
+    private static final By BTN_YES = By.xpath("//button[@ng-click='piC.deleteProject()']");
+    private static final By ALT_MSG = By.xpath("//span[@data-notify='message']");
+    /*
+     * *****************************************************************************
+     * *************
+     */
     // Date picker
-    public static final By BTN_SDATE_PICKER = By.xpath("//button[@ng-click='pcC.openSDatePicker()']");
-    public static final By BTN_EDATE_PICKER = By.xpath("//button[@ng-click='pcC.openEDatePicker()']");
-    public static final By BTN_TODAY = By.xpath("//button[text()='Today']");
-    public static final By BTN_MONTH_YEAR = By.xpath("//button[@ng-disabled='datepickerMode === maxMode']");
-    public static final By BTN_YEAR_2023 = By.xpath("//span[text()='2023']");
-    public static final By BTN_MONTH_5 = By.xpath("//span[text()='May']");
 
-    public static final By DATE_PICKER_DAY(String text) { // number with double digit 01->31
-        return By.xpath(String.format("//span[@class='ng-binding'][text()='%s']", text));
-    }
+    /*
+     * *****************************************************************************
+     * *************
+     */
 
-    public void PickToday() {
-        clickElement(BTN_SDATE_PICKER);
-        clickElement(BTN_TODAY);
-        clickElement(BTN_EDATE_PICKER);
-        clickElement(BTN_MONTH_YEAR);
-        clickElement(BTN_MONTH_YEAR);
-        clickElement(BTN_YEAR_2023);
-        clickElement(BTN_MONTH_5);
-        clickElement(DATE_PICKER_DAY("05"));
-        // clickElement(BTN_EDATE_PICKER);
-        // clickElement(BTN_TODAY);
-    }
-
-    /* ****************************************************************************************** */
-
-    //method
+    // method
     public CreateProjectPage(WebDriver driver) {
         super(driver);
-        //TODO Auto-generated constructor stub
+        // TODO Auto-generated constructor stub
     }
 
     public void clickCreateProjectDropdownList() {
@@ -105,13 +94,13 @@ public class CreateProjectPage extends BasePage {
         element.selectByVisibleText(text);
     }
 
-
     public void inputTextBox(By locator, String text) {
         inputText(locator, text);
     }
 
     public void fillProjectInfomation() {
-        inputTextBox(TXT_PROJECT_NAME, ConfigConstants.PRJ_NAME);
+        LocalTime date = java.time.LocalTime.now();
+        inputTextBox(TXT_PROJECT_NAME, ConfigConstants.PRJ_NAME + date);
         inputTextBox(TXT_SIZEDAY, "1");
         inputTextBox(TXT_SHORT_DESCRIPTION, ConfigConstants.TXT_INPUT);
         inputTextBox(TXT_LONG_DESCRIPTION, ConfigConstants.TXT_INPUT);
@@ -120,7 +109,7 @@ public class CreateProjectPage extends BasePage {
         inputTextBox(TXT_CLIENT_DESCRIPTION, ConfigConstants.TXT_INPUT);
     }
 
-    public void selectProjectValue() {
+    public void selectProjectValue() { // need more detail value of dropdownlist
         elementSelectByIndex(DDL_PROJECT_STATUS, 1);
         elementSelectByIndex(DDL_PROJECT_TYPE, 1);
         elementSelectByIndex(DDL_LOCATION, 1);
@@ -128,6 +117,5 @@ public class CreateProjectPage extends BasePage {
         elementSelectByIndex(DDL_DELIVERY_MANAGER, 1);
         elementSelectByIndex(DDL_ENGAGEMENT_MANAGER, 1);
         elementSelectByIndex(DDL_CLIENT_INDUSTRY, 1);
-
     }
 }

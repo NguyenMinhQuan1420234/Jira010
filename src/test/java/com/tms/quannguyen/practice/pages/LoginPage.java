@@ -14,6 +14,8 @@ public class LoginPage extends BasePage {
     public static final By CHK_REMEMBER = By.id("remember");
     public static final By BTN_LOGIN = By.cssSelector("input[value='Login']");
     public static final By LNK_FORGOT_PASSWORD = By.linkText("Forgot the password?");
+    public final String RQR_MSG = "This is a required field.";
+    public final String ERR_MSG = "The Username or Password you entered is incorrect";
 
     public LoginPage(WebDriver driver) {
         super(driver);
