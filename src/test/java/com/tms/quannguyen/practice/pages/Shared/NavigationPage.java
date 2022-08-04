@@ -30,6 +30,10 @@ public class NavigationPage extends BasePage {
     public static final By BTN_NEXT_PAGE = By.xpath("//a[@ng-click='setCurrent(pagination.current + 1)']");
     public static final By BTN_NEXT_PAGE_DISABLE = By.xpath("//li[@class='ng-scope disabled']/a[@ng-click='setCurrent(pagination.current + 1)'']");
 
+    public void navigateUrl(String url) {
+        driver.get(ConfigConstants.BASE_URL + url);
+    }
+
     public static final By listOfProjectNameLocator(String text) { 
         return By.xpath(String.format("//a[contains(text(),'%s')]", text));
     }
@@ -45,7 +49,7 @@ public class NavigationPage extends BasePage {
     }
  
     public void verifyProjectName(String expected, String search) {
-        ArrayList<WebElement> projectNameList = listOfProjectName(search);
+        ArrayList<WebElement> projectNameList = listOfProjectName(search); // list chỉ lấy đúng element theo ký tự
         boolean flag = true;
         String name = "";
         
@@ -55,10 +59,15 @@ public class NavigationPage extends BasePage {
                 assertThat("verify message:", name, containsString(search));
                 // if (expected.equals(name)) 
                     // assertThat("Verify Message", expected, equalTo(name));
-                
             }
-            if (projectNameList.size() > 15) 
-                clickElement(BTN_NEXT_PAGE);
+            if (projectNameList.size() == 15) { // tổng số là 15 tên / 1 trang
+                try {
+                    clickElement(BTN_NEXT_PAGE);
+                } catch (Exception e) {
+                    //TODO: handle exception
+                }
+                projectNameList = listOfProjectName(search); // đúng ký tự nhập vô mới lập list
+            }
             else
                 break;
         }

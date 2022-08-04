@@ -69,6 +69,7 @@ public class SearchProjectPage extends BasePage {
         WebElement footer = driver.findElement(By.tagName("footer"));
         int deltaY = footer.getRect().y;
         WheelInput.ScrollOrigin scrollOrigin = WheelInput.ScrollOrigin.fromElement(textboxSearchProject);
+        // driver.manage().window()
         a.moveToElement(textboxSearchProject).click();
         a.sendKeys(Keys.EQUALS);
         a.keyDown(Keys.LEFT_CONTROL);
@@ -76,7 +77,8 @@ public class SearchProjectPage extends BasePage {
         a.keyDown(Keys.SUBTRACT);
         a.keyUp(Keys.SUBTRACT);
         a.perform();
-        textboxSearchProject.sendKeys(Keys.NUMPAD0);
+
+        // textboxSearchProject.sendKeys(Keys.NUMPAD0);
         // Robot robot = new Robot();
         // System.out.println("About to zoom out");
         // for (int i = 0; i < 2; i++) {

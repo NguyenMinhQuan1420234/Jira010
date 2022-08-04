@@ -25,12 +25,14 @@ public class LoginTest extends BaseTest {
     // public WebDriver driver;
     LoginPage loginPage;
     NavigationPage navigatePage;
+    @BeforeMethod
+    public void SetUp() {
+        loginPage = new LoginPage(driver);
+        navigatePage = new NavigationPage(driver);
+    }
 
     @Test(priority = 0, description = "Login with valid Admin account")
     public void LoginSuccessfulCase() throws InterruptedException {
-
-        loginPage = new LoginPage(driver);
-        navigatePage = new NavigationPage(driver);
 
         loginPage.inputUsername(ConfigConstants.USERNAME);
         loginPage.inputPassword(ConfigConstants.PASSWORD);
@@ -42,9 +44,6 @@ public class LoginTest extends BaseTest {
     @Test(priority = 1, description = "Login with empty password ") //empty password
     public void LoginUnsuccessfulNoPassword() throws InterruptedException {
 
-        loginPage = new LoginPage(driver);
-        navigatePage = new NavigationPage(driver);
-
         loginPage.inputUsername(ConfigConstants.USERNAME);
         loginPage.inputPassword("");
         loginPage.clickLoginBtn();
@@ -54,9 +53,6 @@ public class LoginTest extends BaseTest {
 
     @Test(priority = 1, description = "Login with empty username")
     public void LoginUnsuccessfulNoUsername() throws InterruptedException {
-
-        loginPage = new LoginPage(driver);
-        navigatePage = new NavigationPage(driver);
 
         loginPage.inputUsername("");
         loginPage.inputPassword(ConfigConstants.PASSWORD);
@@ -68,9 +64,6 @@ public class LoginTest extends BaseTest {
     @Test(priority = 1, description = "Login with empty username and password")
     public void LoginUnsuccessfulEmpty() throws InterruptedException {
 
-        loginPage = new LoginPage(driver);
-        navigatePage = new NavigationPage(driver);
-
         loginPage.inputUsername("");
         loginPage.inputPassword("");
         loginPage.clickLoginBtn();
@@ -80,9 +73,6 @@ public class LoginTest extends BaseTest {
 
     @Test(priority = 2, description = "Login with invalid username and password")
     public void LoginUnsuccessfulInvalidData() throws InterruptedException {
-
-        loginPage = new LoginPage(driver);
-        navigatePage = new NavigationPage(driver);
 
         loginPage.inputUsername("Admin1");
         loginPage.inputPassword("qp$#tGu3");

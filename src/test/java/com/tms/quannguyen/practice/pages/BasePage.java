@@ -27,9 +27,6 @@ public class BasePage {
         wait = new WebDriverWait(driver, Duration.ofSeconds(ConfigConstants.TIMEOUT_IN_SECOND));
     }
 
-    public void navigateUrl(String url) {
-        driver.get(ConfigConstants.BASE_URL + url);
-    }
 
     public Select elementSelect(By locator) {
         WebElement selectElement = waitForElementToBeClickable(locator);

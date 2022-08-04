@@ -98,9 +98,15 @@ public class CreateProjectPage extends BasePage {
         inputText(locator, text);
     }
 
-    public void fillProjectInfomation() {
+    public String createProjectNameUnique() {
         LocalTime date = java.time.LocalTime.now();
-        inputTextBox(TXT_PROJECT_NAME, ConfigConstants.PRJ_NAME + date);
+        String projectName = ConfigConstants.PRJ_NAME + date; 
+        return projectName;
+    }
+
+    public void fillProjectInfomation(String projectname) {
+
+        inputTextBox(TXT_PROJECT_NAME, projectname);
         inputTextBox(TXT_SIZEDAY, "1");
         inputTextBox(TXT_SHORT_DESCRIPTION, ConfigConstants.TXT_INPUT);
         inputTextBox(TXT_LONG_DESCRIPTION, ConfigConstants.TXT_INPUT);

@@ -44,7 +44,8 @@ public class CreateProjectTest extends BaseTest {
     public void CreateProjectSuccessfully() {
         
         createProjectPage.clickCreateProjectDropdownList();
-        createProjectPage.fillProjectInfomation();
+        String projectname = createProjectPage.createProjectNameUnique();
+        createProjectPage.fillProjectInfomation(projectname);
         createProjectPage.selectProjectValue();
         datePickerPage.sdayOpen();
         datePickerPage.datePicker("2042", "June", "29");
@@ -53,7 +54,7 @@ public class CreateProjectTest extends BaseTest {
 
         createProjectPage.clickCreateButton();
 
-        assertThat("verify message: ", navigatePage.getProjectName(), equalTo(ConfigConstants.PRJ_NAME));
+        assertThat("verify message: ", navigatePage.getProjectName(), equalTo(projectname));
     }
 
     @AfterMethod

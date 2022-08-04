@@ -28,14 +28,15 @@ public class SearchProjectTest extends BaseTest {
     
     @BeforeMethod
     public void BeforeSearch() {       
+        driver.manage().window().setSize(new Dimension(1024,768));
         loginPage = new LoginPage(driver);
         loginPage.LoginWithUsernameAndPassword();
+        searchProjectPage = new SearchProjectPage(driver);
+        navigatePage = new NavigationPage(driver);
     }
 
      @Test
      public void searchProjectSuccess() {
-        searchProjectPage = new SearchProjectPage(driver);
-        navigatePage = new NavigationPage(driver);
 
         searchProjectPage.clickSearchMenu();
         searchProjectPage.inputSearchProjectNameDefault();
@@ -47,21 +48,14 @@ public class SearchProjectTest extends BaseTest {
 
      @Test
      public void searchProjectByMethod() throws AWTException {
-        searchProjectPage = new SearchProjectPage(driver);
-        navigatePage = new NavigationPage(driver);
 
         searchProjectPage.clickSearchMenu();
-        searchProjectPage.inputSearchProjectName("The");
+        searchProjectPage.inputSearchProjectName("aaa");
         searchProjectPage.clickSearchButton();
         searchProjectPage.zoomOutSearchPage();
         searchProjectPage.zoom();
         // searchProjectPage.driver.manage().window().maximize();
         // navigatePage.verifyProjectName(ConfigConstants.PRJ_SEARCH_NAME, "quan");
-        navigatePage.verifyProjectName("The New Project 3", "The");
-     }
-
-     @AfterMethod
-     public void AfterMethod() {
-        System.out.println("pause");
+        navigatePage.verifyProjectName("aaa", "aaa");
      }
 }
